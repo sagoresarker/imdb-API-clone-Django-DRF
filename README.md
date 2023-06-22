@@ -1,0 +1,1 @@
+In this Project, I tried to implement a full functional IMDB clone with JWT authentication, throatling, Rate Limiting and so much more using Django Rest Framework. 
