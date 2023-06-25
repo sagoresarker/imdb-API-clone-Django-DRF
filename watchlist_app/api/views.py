@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
 #from rest_framework import mixins
 from rest_framework import generics
-from rest_framework.permissions import  IsAuthenticatedOrReadOnly
+from rest_framework.permissions import  IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from watchlist_app.api.permissions import AdminOrReadOnly, ReviewUserOrReadOnly
 
@@ -42,7 +42,8 @@ class ReviewList(generics.ListAPIView):
     #queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     #permission_classes = [IsAuthenticatedOrReadOnly]
-    permission_classes = [AdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
+    #permission_classes = [AdminOrReadOnly]
 
     def get_queryset(self):
         pk = self.kwargs['pk']
