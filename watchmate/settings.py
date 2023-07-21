@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
+
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# Globally restricted content to unauthorized user. 
+# Globally restricted content to unauthorized user.
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': [
@@ -144,8 +146,8 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         #'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ], 
-
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     # 'DEFAULT_THROTTLE_CLASSES': [
     #     'rest_framework.throttling.AnonRateThrottle',
     #     'rest_framework.throttling.UserRateThrottle'
@@ -164,3 +166,8 @@ REST_FRAMEWORK = {
 # SIMPLE_JWT = {
 #     'ROTATE_REFRESH_TOKENS' : True
 # }
+
+
+SPECTACULAR_SETTINGS = {
+    'COMPONENT_SPLIT_REQUEST': True,
+}
